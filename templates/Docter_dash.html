@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        td a {
+            color: #007bff;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        td a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <h3 class="mb-4">Welcome...</h3>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+        <p class="mt-2">{{ request.session.username }}</p>
+        <div class="table-responsive" >
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Photo</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Address Line 1</th>
+                        <th>City</th>
+                        <th>State</th>
+                        
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.first_name }}</td>
+                        <td>{{ i.last_name }}</td>
+                        <td>{{ i.photo }}</td>
+                        <td>{{ i.username }}</td>
+                        <td>{{ i.email }}</td>
+                        <td>{{ i.password }}</td>
+                        <td>{{ i.address_line1 }}</td>
+                        <td>{{ i.city }}</td>
+                        <td>{{ i.state }}</td>
+                        
+                        <td>
+                            <a href="/deletepatiant?id={{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="/profileupdate?id={{ i.id }}" class="btn btn-primary btn-sm">Update</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

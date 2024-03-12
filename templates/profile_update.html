@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Profile</h2>
+        {% for i in data %}
+        <form action="/profilesubmit" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ i.id }}">
+            <label for="first_name">First Name:</label><br>
+            <input type="text" id="first_name" name="first_name" value="{{ i.first_name }}" required><br><br>
+            
+            <label for="last_name">Last Name:</label><br>
+            <input type="text" id="last_name" name="last_name" value="{{ i.last_name }}" required><br><br>
+
+            <div class="form-group">
+                <label for="photo">Photo:</label>
+                <input type="file" id="photo" name="photo">
+                
+            </div>
+           
+            
+            <!--<label for="profile_picture">Profile Picture:</label><br>
+            <input type="file" id="profile_picture" name="profile_picture"><br><br>-->
+        
+           
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" value="{{ i.username }}" required><br><br>
+            
+            <label for="email">Email Id:</label><br>
+            <input type="email" id="email" name="email" value="{{ i.email }}" required><br><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" value="{{ i.password }}" required><br><br>
+            
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" value="{{ i.confirm_password }}"><br><br>
+            
+            <label for="address_line1">Address Line 1:</label><br>
+            <input type="text" id="address_line1" name="address_line1" value="{{ i.address_line1 }}" required><br><br>
+            
+            <label for="city">City:</label><br>
+            <input type="text" id="city" name="city" value="{{ i.city }}" required><br><br>
+            
+            <label for="state">State:</label><br>
+            <input type="text" id="state" name="state" value="{{ i.state }}" required><br><br>
+            
+            <label for="pincode">Pincode:</label><br>
+            <input type="text" id="pincode" name="pincode" value="{{ i.pincode }}" required><br><br>
+            
+            
+            
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        {% endfor %}
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

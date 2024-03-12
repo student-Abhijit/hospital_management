@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Selection</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS styles */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 20px;
+            text-align: center;
+            margin: 0; /* Remove default margin */
+            height: 100vh; /* Make sure the body fills the entire viewport height */
+            display: flex; /* Use flexbox for vertical alignment */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+        .container {
+            background-image: radial-gradient(circle, #ffffff 1%, transparent 1%); /* Dotted background */
+            background-size: 20px 20px; /* Adjust the size of the dots */
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            max-width: 400px; /* Limit container width */
+            width: 100%; /* Take up full width */
+        }
+        .container h2 {
+            margin-bottom: 20px; /* Add some space below heading */
+        }
+        .login-link {
+            margin-bottom: 20px;
+            display: block; /* Make links block-level for better spacing */
+            width: 100%; /* Take up full width */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Patient and Doctor Portal</h2>
+        <p>Please select your role to proceed:</p>
+        <a href="patient" class="btn btn-primary login-link">Patient Login</a>
+        <a href="docter" class="btn btn-primary login-link">Doctor Login</a>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

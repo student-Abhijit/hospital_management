@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h3 {
+            margin-bottom: 10px;
+        }
+        .profile-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .profile-info img {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+        .dotted-bg {
+            background-image: radial-gradient(circle, #ffffff 1%, rgba(255, 255, 255, 0) 1%);
+            background-size: 30px 30px;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="dotted-bg">
+    <div class="container">
+        <h3>Welcome, {{ request.session.username }}</h3>
+        <a href="/plogout" class="btn btn-danger">Logout</a>
+        
+        {% for i in data %}
+        <div class="profile-info">
+            <img src="{{ i.photo }}" alt="Profile Picture">
+            <h3>Name:</h3>
+            <p>{{ i.first_name }} {{ i.last_name }}</p>
+            <h3>Email:</h3>
+            <p>{{ i.email }}</p>
+            <h3>Password:</h3>
+            <p>{{ i.password }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
